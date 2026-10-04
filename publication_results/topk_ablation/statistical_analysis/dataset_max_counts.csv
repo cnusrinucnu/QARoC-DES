@@ -1,0 +1,4 @@
+Metric,K1,K3,K5,K7
+Accuracy,1,6,10,17
+MacroF1,7,7,7,9
+BalancedAccuracy,7,6,10,8

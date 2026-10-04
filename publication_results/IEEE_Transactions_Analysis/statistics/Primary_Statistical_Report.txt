@@ -1,0 +1,74 @@
+====================================================================================================
+PRIMARY IEEE TRANSACTIONS STATISTICAL ANALYSIS
+bADE-RoC-DES vs. 11 Practical Baselines
+Oracle excluded from primary inferential comparison
+====================================================================================================
+
+Datasets: 30
+Methods: 12
+
+FRIEDMAN TEST
+Chi-square       : 151.56114433
+p-value          : 7.14961344e-27
+Kendall's W      : 0.45927619
+
+NEMENYI CRITICAL DIFFERENCE
+q(alpha=0.05)     : 3.26809613
+Critical Difference: 3.04243192
+
+AVERAGE RANKS
+      Method  Mean_Accuracy  SD_Across_Datasets  Average_Rank  Rank_1_Count
+      DESKNN      80.876328            9.112185      3.550000             8
+     DES_MHA      80.776659            9.171615      3.933333             3
+     KNORA-U      80.420012            9.256431      4.783333             6
+        KNOP      80.485477            9.259468      4.950000             2
+bADE-RoC-DES      80.612710            9.341684      5.100000             1
+      KNORAE      80.496049            9.447254      5.450000             5
+    META-DES      80.740933            9.315757      5.466667             3
+         OLA      80.136739            9.242102      6.983333             2
+  SingleBest      79.681399            9.586357      7.866667             2
+         MCB      79.685484            9.546529      8.750000             0
+         MLA      77.755540           10.180795     10.533333             1
+         LCA      77.754737           10.181430     10.633333             1
+
+PAIRWISE WILCOXON + HOLM
+  Baseline  Mean_Difference_pp  Median_Difference_pp  Wilcoxon_W        Raw_p  Wins  Ties  Losses  Rank_Biserial  Holm_Adjusted_p  Significant_Holm_0.05
+       MCB            0.927225              0.959053         2.0 5.587935e-09    29     0       1       0.991398     6.146729e-08                   True
+       LCA            2.857973              2.382127         5.0 2.876863e-06    29     0       1       0.978495     2.876863e-05                   True
+       MLA            2.857170              2.369106         5.0 2.876863e-06    29     0       1       0.978495     2.876863e-05                   True
+       OLA            0.475970              0.271579        50.0 5.592592e-05    26     0       4       0.784946     4.474074e-04                   True
+SingleBest            0.931311              0.799149        66.0 3.127549e-04    24     0       6       0.716129     2.189284e-03                   True
+    DESKNN           -0.263619             -0.334936        95.0 3.744433e-03     8     0      22      -0.591398     2.246660e-02                   True
+   DES_MHA           -0.163949             -0.204540       107.0 1.687758e-02     6     1      23      -0.508046     8.438792e-02                  False
+    KNORAE            0.116660             -0.007289       197.0 6.575664e-01    14     1      15       0.094253     1.000000e+00                  False
+   KNORA-U            0.192698             -0.130765       229.5 9.507964e-01    13     0      17      -0.012903     1.000000e+00                  False
+      KNOP            0.127233             -0.094691       209.0 8.541725e-01    13     1      16      -0.039080     1.000000e+00                  False
+  META-DES           -0.128223              0.000000       177.0 7.731092e-01    13     3      14      -0.063492     1.000000e+00                  False
+
+BOOTSTRAP 95% CI
+  Baseline  Observed_Mean_Difference_pp  Bootstrap_CI_Lower  Bootstrap_CI_Upper
+   DES_MHA                    -0.163949           -0.392730            0.125063
+   KNORA-U                     0.192698           -0.235387            0.790217
+    KNORAE                     0.116660           -0.112480            0.365831
+    DESKNN                    -0.263619           -0.531930            0.064016
+       OLA                     0.475970            0.270947            0.701836
+       LCA                     2.857973            1.999033            3.802336
+       MLA                     2.857170            2.007095            3.791055
+       MCB                     0.927225            0.680265            1.201564
+      KNOP                     0.127233           -0.226334            0.569502
+  META-DES                    -0.128223           -0.453196            0.174360
+SingleBest                     0.931311            0.498097            1.382537
+
+WIN/TIE/LOSS
+  Baseline  Wins  Ties  Losses
+       MCB    29     0       1
+       LCA    29     0       1
+       MLA    29     0       1
+       OLA    26     0       4
+SingleBest    24     0       6
+    DESKNN     8     0      22
+   DES_MHA     6     1      23
+    KNORAE    14     1      15
+   KNORA-U    13     0      17
+      KNOP    13     1      16
+  META-DES    13     3      14

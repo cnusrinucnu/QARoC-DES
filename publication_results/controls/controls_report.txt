@@ -1,0 +1,23 @@
+PART A  fitness vs. correctness, controlling for pool confidence
+----------------------------------------------------------------------
+datasets analysed: 30
+mean AUC_fitness_only : 0.6924   median 0.6705
+mean AUC_confound     : 0.7588   median 0.7399
+mean AUC_full         : 0.7615   median 0.7402
+mean dAUC             : 0.0026   median 0.0006
+datasets where adding fitness raises CV-AUC: 20/30 (sign test p=0.09874)
+Wilcoxon on dAUC over datasets: p=0.02933
+fitness coef > 0 in 22/30 datasets; significant positive (p<0.05, uncorrected) in 16
+mean standardized fitness coef: 0.1295
+INTERPRETATION: if dAUC is ~0 and few coefficients are significant,
+fitness is mostly a proxy for pool confidence/agreement.
+
+PART B  bADE-RoC-DES (Top-3) vs. controls without optimization
+----------------------------------------------------------------------
+        Control  Control_mean  bADE_mean  bADE_minus_control_pp  wins  losses  p_raw  p_holm
+      KNN7_Top3       80.7872    80.6127                -0.1745     8      20 0.0242  0.0967
+     KNN10_Top3       80.7624    80.6127                -0.1497     9      21 0.0277  0.0967
+     KNN20_Top3       80.7165    80.6127                -0.1038    10      19 0.1567  0.3133
+Static_Majority       80.0895    80.6127                 0.5232    16      13 0.1836  0.3133
+INTERPRETATION: bADE_minus_control_pp > 0 with small p_holm means the
+optimizer helps; ~0 means plain kNN does just as well.

@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{Paired statistical analysis of $K=3$ against alternative selection sizes. Tests are conducted on dataset-wise means across the 30 datasets, with Holm correction within each metric.}
+\label{tab:topk_stats}
+\begin{tabular}{l|c|r|r|r}
+\hline
+Metric & Comparison & $\Delta$ & $p_{\mathrm{Holm}}$ & RBC\\
+\hline
+Accuracy & K=3 vs K=1 & 0.80 & 0.0000* & 0.970 \\
+Accuracy & K=3 vs K=5 & -0.18 & 0.0043* & -0.641 \\
+Accuracy & K=3 vs K=7 & -0.26 & 0.0029* & -0.690 \\
+Macro-F1 & K=3 vs K=1 & 0.46 & 0.0298* & 0.531 \\
+Macro-F1 & K=3 vs K=5 & -0.02 & 0.8090 & -0.178 \\
+Macro-F1 & K=3 vs K=7 & 0.03 & 0.8090 & -0.084 \\
+Bal. Acc. & K=3 vs K=1 & 0.43 & 0.0493* & 0.497 \\
+Bal. Acc. & K=3 vs K=5 & -0.04 & 0.9377 & -0.154 \\
+Bal. Acc. & K=3 vs K=7 & 0.01 & 0.9377 & -0.054 \\
+\hline
+\multicolumn{5}{l}{\footnotesize * $p_{\mathrm{Holm}}<0.05$. RBC: rank-biserial correlation.}\\
+\end{tabular}
+\end{table}

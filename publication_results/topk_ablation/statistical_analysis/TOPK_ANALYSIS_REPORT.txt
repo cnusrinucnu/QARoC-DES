@@ -1,0 +1,41 @@
+TOP-K ABLATION STATISTICAL ANALYSIS
+============================================================
+
+Experimental structure:
+Datasets: 30
+Iterations: 20
+Run-level rows: 2400
+K values: 1, 3, 5, 7
+
+Overall descriptive results:
+      Accuracy                       MacroF1                     BalancedAccuracy                    
+          mean       std    median      mean       std    median             mean       std    median
+TopK                                                                                                 
+1     0.798155  0.098599  0.780412  0.747937  0.135955  0.748233         0.744528  0.136102  0.746542
+3     0.806127  0.096241  0.783744  0.752509  0.139360  0.750074         0.748863  0.139033  0.751093
+5     0.807960  0.095369  0.789474  0.752671  0.141411  0.755483         0.749311  0.140026  0.755179
+7     0.808770  0.094713  0.790459  0.752172  0.141869  0.761048         0.748722  0.140311  0.756130
+
+Friedman tests:
+          Metric  N_Datasets  Friedman_Chi2  p_value  Kendall_W
+        Accuracy          30      46.686207 0.000000   0.518736
+         MacroF1          30      11.920000 0.007662   0.132444
+BalancedAccuracy          30      10.806020 0.012822   0.120067
+
+K=3 versus alternatives:
+          Metric Comparison  N_Datasets  Mean_K3  Mean_Other  Mean_Difference  Median_Difference  Wilcoxon_W        p_raw  Rank_Biserial       p_holm  Significant_0.05
+        Accuracy K=3 vs K=1          30 0.806127    0.798155         0.007972           0.008211         7.0 4.000000e-08       0.969892 1.100000e-07              True
+        Accuracy K=3 vs K=5          30 0.806127    0.807960        -0.001833          -0.001048        63.0 4.272990e-03      -0.641026 4.272990e-03              True
+        Accuracy K=3 vs K=7          30 0.806127    0.808770        -0.002643          -0.002530        63.0 1.432610e-03      -0.689655 2.865220e-03              True
+         MacroF1 K=3 vs K=1          30 0.752509    0.747937         0.004572           0.005192       109.0 9.931510e-03       0.531183 2.979453e-02              True
+         MacroF1 K=3 vs K=5          30 0.752509    0.752671        -0.000162          -0.000467       191.0 4.044945e-01      -0.178495 8.089890e-01             False
+         MacroF1 K=3 vs K=7          30 0.752509    0.752172         0.000337          -0.000493       213.0 7.000329e-01      -0.083871 8.089890e-01             False
+BalancedAccuracy K=3 vs K=1          30 0.748863    0.744528         0.004336           0.005028       117.0 1.643121e-02       0.496774 4.929364e-02              True
+BalancedAccuracy K=3 vs K=5          30 0.748863    0.749311        -0.000448          -0.000314       184.0 4.688342e-01      -0.154023 9.376683e-01             False
+BalancedAccuracy K=3 vs K=7          30 0.748863    0.748722         0.000142          -0.000098       220.0 8.078304e-01      -0.053763 9.376683e-01             False
+
+Dataset maximum counts:
+          Metric  K1  K3  K5  K7
+        Accuracy   1   6  10  17
+         MacroF1   7   7   7   9
+BalancedAccuracy   7   6  10   8
